@@ -1,0 +1,18 @@
+function Main.main 1
+//do PongGame.newInstance()
+call PongGame.newInstance 0
+pop temp 0
+call PongGame.getInstance 0
+pop local 0
+//let game = PongGame.getInstance()
+push local 0
+//do game.run()
+call PongGame.run 1
+pop temp 0
+push local 0
+//do game.dispose()
+call PongGame.dispose 1
+pop temp 0
+//return 
+push constant 0
+return

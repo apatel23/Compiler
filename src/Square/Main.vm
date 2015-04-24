@@ -1,12 +1,15 @@
 function Main.main 1
 call SquareGame.new 0
-// letgame = SquareGame.new()
-// do game.run()
+pop local 0
+//let game = SquareGame.new()
+push local 0
+//do game.run()
 call SquareGame.run 1
 pop temp 0
-// do game.dispose()
+push local 0
+//do game.dispose()
 call SquareGame.dispose 1
 pop temp 0
-// return 
+//return 
 push constant 0
 return

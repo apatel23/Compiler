@@ -1,0 +1,589 @@
+function Ball.new 0
+push constant 15
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+//let x = Ax
+push argument 1
+pop this 1
+//let y = Ay
+push argument 2
+pop this 10
+//let leftWall = AleftWall
+push argument 3
+push constant 6
+sub
+pop this 11
+//let rightWall = ArightWall-6
+push argument 4
+pop this 12
+//let topWall = AtopWall
+push argument 5
+push constant 6
+sub
+pop this 13
+//let bottomWall = AbottomWall-6
+push constant 0
+pop this 14
+//let wall = 0
+push pointer 0
+//do show()
+call Ball.show 1
+pop temp 0
+push pointer 0
+//return this
+return
+function Ball.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+//do Memory.deAlloc(this)
+call Memory.deAlloc 1
+pop temp 0
+//return 
+push constant 0
+return
+function Ball.show 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+//do Screen.setColor(true)
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+//do draw()
+call Ball.draw 1
+pop temp 0
+//return 
+push constant 0
+return
+function Ball.hide 0
+push argument 0
+pop pointer 0
+push constant 0
+//do Screen.setColor(false)
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+//do draw()
+call Ball.draw 1
+pop temp 0
+//return 
+push constant 0
+return
+function Ball.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push this 0
+push constant 5
+add
+push this 1
+push constant 5
+add
+//do Screen.drawRectangle(x, y, x+5, y+5)
+call Screen.drawRectangle 4
+pop temp 0
+//return 
+push constant 0
+return
+function Ball.getLeft 0
+push argument 0
+pop pointer 0
+push this 0
+//return x
+return
+function Ball.getRight 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 5
+add
+//return x+5
+return
+function Ball.setDestination 3
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+sub
+pop this 2
+//let lengthx = destx-x
+push argument 2
+push this 1
+sub
+pop this 3
+//let lengthy = desty-y
+push this 2
+call Math.abs 1
+pop local 0
+//let dx = Math.abs(lengthx)
+push this 3
+call Math.abs 1
+pop local 1
+//let dy = Math.abs(lengthy)
+push local 0
+push local 1
+lt
+pop this 7
+//let invert = (dx<dy)
+push this 7
+//if(invert)
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push local 0
+pop local 2
+//let temp = dx
+push local 1
+pop local 0
+//let dx = dy
+push local 2
+pop local 1
+//let dy = temp
+push this 1
+push argument 2
+lt
+pop this 8
+//let positivex = (y<desty)
+push this 0
+push argument 1
+lt
+pop this 9
+//let positivey = (x<destx)
+//END_IF0
+goto IF_END0
+label IF_FALSE0
+//else
+push this 0
+push argument 1
+lt
+pop this 8
+//let positivex = (x<destx)
+push this 1
+push argument 2
+lt
+pop this 9
+//let positivey = (y<desty)
+//END_ELSE0
+label IF_END0
+push constant 2
+push local 1
+call Math.multiply 2
+push local 0
+sub
+pop this 4
+//let d = (2*dy)-dx
+push constant 2
+push local 1
+call Math.multiply 2
+pop this 5
+//let straightD = 2*dy
+push constant 2
+push local 1
+push local 0
+sub
+call Math.multiply 2
+pop this 6
+//let diagonalD = 2*(dy-dx)
+//return 
+push constant 0
+return
+function Ball.move 0
+push argument 0
+pop pointer 0
+push pointer 0
+//do hide()
+call Ball.hide 1
+pop temp 0
+push this 4
+push constant 0
+lt
+//if(d<0)
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 4
+push this 5
+add
+pop this 4
+//let d = d+straightD
+//END_IF1
+goto IF_END1
+label IF_FALSE1
+//else
+push this 4
+push this 6
+add
+pop this 4
+//let d = d+diagonalD
+push this 9
+//if(positivey)
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 7
+//if(invert)
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 0
+push constant 4
+add
+pop this 0
+//let x = x+4
+//END_IF3
+goto IF_END3
+label IF_FALSE3
+//else
+push this 1
+push constant 4
+add
+pop this 1
+//let y = y+4
+//END_ELSE3
+label IF_END3
+//END_IF2
+goto IF_END2
+label IF_FALSE2
+//else
+push this 7
+//if(invert)
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 0
+push constant 4
+sub
+pop this 0
+//let x = x-4
+//END_IF4
+goto IF_END4
+label IF_FALSE4
+//else
+push this 1
+push constant 4
+sub
+pop this 1
+//let y = y-4
+//END_ELSE4
+label IF_END4
+//END_ELSE2
+label IF_END2
+//END_ELSE1
+label IF_END1
+push this 8
+//if(positivex)
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 7
+//if(invert)
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push this 1
+push constant 4
+add
+pop this 1
+//let y = y+4
+//END_IF6
+goto IF_END6
+label IF_FALSE6
+//else
+push this 0
+push constant 4
+add
+pop this 0
+//let x = x+4
+//END_ELSE6
+label IF_END6
+//END_IF5
+goto IF_END5
+label IF_FALSE5
+//else
+push this 7
+//if(invert)
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push this 1
+push constant 4
+sub
+pop this 1
+//let y = y-4
+//END_IF7
+goto IF_END7
+label IF_FALSE7
+//else
+push this 0
+push constant 4
+sub
+pop this 0
+//let x = x-4
+//END_ELSE7
+label IF_END7
+//END_ELSE5
+label IF_END5
+push this 0
+push this 10
+gt
+not
+//if(~(x>leftWall))
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 1
+pop this 14
+//let wall = 1
+push this 10
+pop this 0
+//let x = leftWall
+//END_IF8
+goto IF_END8
+label IF_FALSE8
+label IF_END8
+push this 0
+push this 11
+lt
+not
+//if(~(x<rightWall))
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push constant 2
+pop this 14
+//let wall = 2
+push this 11
+pop this 0
+//let x = rightWall
+//END_IF9
+goto IF_END9
+label IF_FALSE9
+label IF_END9
+push this 1
+push this 12
+gt
+not
+//if(~(y>topWall))
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push constant 3
+pop this 14
+//let wall = 3
+push this 12
+pop this 1
+//let y = topWall
+//END_IF10
+goto IF_END10
+label IF_FALSE10
+label IF_END10
+push this 1
+push this 13
+lt
+not
+//if(~(y<bottomWall))
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push constant 4
+pop this 14
+//let wall = 4
+push this 13
+pop this 1
+//let y = bottomWall
+//END_IF11
+goto IF_END11
+label IF_FALSE11
+label IF_END11
+push pointer 0
+//do show()
+call Ball.show 1
+pop temp 0
+push this 14
+//return wall
+return
+function Ball.bounce 5
+push argument 0
+pop pointer 0
+push this 2
+push constant 10
+call Math.divide 2
+pop local 2
+//let divLengthx = lengthx/10
+push this 3
+push constant 10
+call Math.divide 2
+pop local 3
+//let divLengthy = lengthy/10
+push argument 1
+push constant 0
+eq
+//if(bouncingDirection=0)
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push constant 10
+pop local 4
+//let factor = 10
+//END_IF12
+goto IF_END12
+label IF_FALSE12
+//else
+push this 2
+push constant 0
+lt
+not
+push argument 1
+push constant 1
+eq
+and
+push this 2
+push constant 0
+lt
+push argument 1
+push constant 1
+neg
+eq
+and
+or
+//if(((~(lengthx<0))&(bouncingDirection=1))|((lengthx<0)&(bouncingDirection=(-1))))
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push constant 20
+pop local 4
+//let factor = 20
+//END_IF13
+goto IF_END13
+label IF_FALSE13
+//else
+push constant 5
+pop local 4
+//let factor = 5
+//END_ELSE13
+label IF_END13
+//END_ELSE12
+label IF_END12
+push this 14
+push constant 1
+eq
+//if(wall=1)
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push constant 506
+pop local 0
+//let newx = 506
+push local 3
+push constant 50
+neg
+call Math.multiply 2
+push local 2
+call Math.divide 2
+pop local 1
+//let newy = (divLengthy*(-50))/divLengthx
+push this 1
+push local 1
+push local 4
+call Math.multiply 2
+add
+pop local 1
+//let newy = y+(newy*factor)
+//END_IF14
+goto IF_END14
+label IF_FALSE14
+//else
+push this 14
+push constant 2
+eq
+//if(wall=2)
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push constant 0
+pop local 0
+//let newx = 0
+push local 3
+push constant 50
+call Math.multiply 2
+push local 2
+call Math.divide 2
+pop local 1
+//let newy = (divLengthy*50)/divLengthx
+push this 1
+push local 1
+push local 4
+call Math.multiply 2
+add
+pop local 1
+//let newy = y+(newy*factor)
+//END_IF15
+goto IF_END15
+label IF_FALSE15
+//else
+push this 14
+push constant 3
+eq
+//if(wall=3)
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push constant 250
+pop local 1
+//let newy = 250
+push local 2
+push constant 25
+neg
+call Math.multiply 2
+push local 3
+call Math.divide 2
+pop local 0
+//let newx = (divLengthx*(-25))/divLengthy
+push this 0
+push local 0
+push local 4
+call Math.multiply 2
+add
+pop local 0
+//let newx = x+(newx*factor)
+//END_IF16
+goto IF_END16
+label IF_FALSE16
+//else
+push constant 0
+pop local 1
+//let newy = 0
+push local 2
+push constant 25
+call Math.multiply 2
+push local 3
+call Math.divide 2
+pop local 0
+//let newx = (divLengthx*25)/divLengthy
+push this 0
+push local 0
+push local 4
+call Math.multiply 2
+add
+pop local 0
+//let newx = x+(newx*factor)
+//END_ELSE16
+label IF_END16
+//END_ELSE15
+label IF_END15
+//END_ELSE14
+label IF_END14
+push pointer 0
+push local 0
+push local 1
+//do setDestination(newx, newy)
+call Ball.setDestination 3
+pop temp 0
+//return 
+push constant 0
+return

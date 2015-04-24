@@ -4,20 +4,20 @@
   <symbol> { </symbol>
   <classVarDec>
     <keyword> field </keyword>
-    <identifier> Square </identifier>
-    <identifier> square (FIELD, , 0) </identifier>
+    <identifier> Square (class, used) </identifier>
+    <identifier> square (FIELD, defined, 0) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <classVarDec>
     <keyword> field </keyword>
     <keyword> int </keyword>
-    <identifier> direction (FIELD, , 1) </identifier>
+    <identifier> direction (FIELD, defined, 1) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <subroutineDec>
     <keyword> constructor </keyword>
-    <identifier> SquareGame </identifier>
-    <identifier> new </identifier>
+    <identifier> SquareGame (class, used) </identifier>
+    <identifier> new (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -30,9 +30,9 @@
           <identifier> square (FIELD, used, 0) </identifier>
           <expression>
             <term>
-              <identifier> Square (0, used, -1) </identifier>
+              <identifier> Square (class or subroutine, used) </identifier>
               <symbol> . </symbol>
-              <identifier> new </identifier>
+              <identifier> new (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -86,7 +86,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> dispose </identifier>
+    <identifier> dispose (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -98,7 +98,7 @@
           <keyword> do </keyword>
           <identifier> square (FIELD, used, 0)  </identifier>
           <symbol> . </symbol>
-          <identifier> dispose </identifier>
+          <identifier> dispose (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
           </expressionList>
@@ -107,9 +107,9 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Memory (0, used, -1)  </identifier>
+          <identifier> Memory (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> deAlloc </identifier>
+          <identifier> deAlloc (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -132,7 +132,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> run </identifier>
+    <identifier> run (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -197,9 +197,9 @@
                   <identifier> key (VAR, used, 0) </identifier>
                   <expression>
                     <term>
-                      <identifier> Keyboard (0, used, -1) </identifier>
+                      <identifier> Keyboard (class or subroutine, used) </identifier>
                       <symbol> . </symbol>
-                      <identifier> keyPressed </identifier>
+                      <identifier> keyPressed (subroutine, used) </identifier>
                       <symbol> ( </symbol>
                       <expressionList>
                       </expressionList>
@@ -211,7 +211,7 @@
                 </letStatement>
                 <doStatement>
                   <keyword> do </keyword>
-                  <identifier> moveSquare (0, used, -1)  </identifier>
+                  <identifier> moveSquare (subroutine or class, used)  </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                   </expressionList>
@@ -269,7 +269,7 @@
                   <keyword> do </keyword>
                   <identifier> square (FIELD, used, 0)  </identifier>
                   <symbol> . </symbol>
-                  <identifier> decSize </identifier>
+                  <identifier> decSize (subroutine, used) </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                   </expressionList>
@@ -298,7 +298,7 @@
                   <keyword> do </keyword>
                   <identifier> square (FIELD, used, 0)  </identifier>
                   <symbol> . </symbol>
-                  <identifier> incSize </identifier>
+                  <identifier> incSize (subroutine, used) </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                   </expressionList>
@@ -453,9 +453,9 @@
                   <identifier> key (VAR, used, 0) </identifier>
                   <expression>
                     <term>
-                      <identifier> Keyboard (0, used, -1) </identifier>
+                      <identifier> Keyboard (class or subroutine, used) </identifier>
                       <symbol> . </symbol>
-                      <identifier> keyPressed </identifier>
+                      <identifier> keyPressed (subroutine, used) </identifier>
                       <symbol> ( </symbol>
                       <expressionList>
                       </expressionList>
@@ -467,7 +467,7 @@
                 </letStatement>
                 <doStatement>
                   <keyword> do </keyword>
-                  <identifier> moveSquare (0, used, -1)  </identifier>
+                  <identifier> moveSquare (subroutine or class, used)  </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                   </expressionList>
@@ -491,7 +491,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> moveSquare </identifier>
+    <identifier> moveSquare (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -518,7 +518,7 @@
               <keyword> do </keyword>
               <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
-              <identifier> moveUp </identifier>
+              <identifier> moveUp (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -547,7 +547,7 @@
               <keyword> do </keyword>
               <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
-              <identifier> moveDown </identifier>
+              <identifier> moveDown (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -576,7 +576,7 @@
               <keyword> do </keyword>
               <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
-              <identifier> moveLeft </identifier>
+              <identifier> moveLeft (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -605,7 +605,7 @@
               <keyword> do </keyword>
               <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
-              <identifier> moveRight </identifier>
+              <identifier> moveRight (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -617,9 +617,9 @@
         </ifStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Sys (0, used, -1)  </identifier>
+          <identifier> Sys (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> wait </identifier>
+          <identifier> wait (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>

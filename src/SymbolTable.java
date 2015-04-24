@@ -1,156 +1,149 @@
-import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Enumeration;
 
+// symbol table for an identifier w/ kind, type and index
+// Uses subclass: Values for behavior
 public class SymbolTable {
-
 	public static final String STATIC = "STATIC";
 	public static final String FIELD = "FIELD";
 	public static final String ARG = "ARG";
 	public static final String VAR = "VAR";
-	private int sub_arg_index;
-	private int sub_var_index;
-	private int class_static_index;
-	private int class_field_index;
 	
-	// symbol table values by scope: class, subroutine, current
-	private Hashtable<String, Values_ST> class_scope;
-	private Hashtable<String, Values_ST> sub_scope;
-	private Hashtable<String, Values_ST> current_scope;
+	private Hashtable<String, Values> classScope;
+	private Hashtable<String, Values> subScope;
+	private Hashtable<String, Values> currScope;
+	private int subArgIdx, subVarIdx;
+	private int classStaticIdx, classFieldIdx;
 	
-	// Constructor, create empty symbol table
+	// create empty symbol table
 	public SymbolTable() {
-		class_scope = new Hashtable<String, Values_ST>();
-		sub_scope = new Hashtable<String, Values_ST>();
-		current_scope = new Hashtable<String, Values_ST>();
-		sub_arg_index = 0;
-		sub_var_index = 0;
-		class_static_index = 0;
-		class_field_index = 0;
+		classScope = new Hashtable<String, Values>();
+		subScope = new Hashtable<String, Values>();
+		currScope = classScope;
+		subArgIdx = 0;
+		subVarIdx = 0;
+		classStaticIdx = 0;
+		classFieldIdx = 0;
 	}
 	
-	public void beginSubroutine(String subtype) {
-		sub_scope.clear(); // empty sub_scope
-		current_scope = sub_scope;
-		sub_arg_index = subtype.equals("method") ? 1 : 0; // instance of method
-		sub_var_index = 0;
-	}
-	
-	public void define(String name, String type, String kind) {
+	// create identifier with name, type and kind. Gives it a scope
+	public void Define(String name, String type, String kind) {
 		int i = -1;
-		Values_ST tmp = null;
+		Values tmp = null;
 		
 		if(kind.equals(STATIC) || kind.equals(FIELD)) {
 			switch(kind) {
-			case STATIC:
-				i = class_static_index++;
+			case STATIC:	
+				i = classStaticIdx++;
 				break;
-			case FIELD:
-				i = class_field_index++;
+			case FIELD:				
+				i = classFieldIdx++;
 				break;
 			}
-			tmp = class_scope.put(name, new Values_ST(type,kind, i));
+			tmp = classScope.put(name, new Values(type, kind, i));
+			
 			if(tmp != null) {
-				// multiple declarations of class identifier
-				return;
+				System.out.println("Multiple declarations of class identifier: " + name);
+				System.exit(1);
 			}
-		} else if(kind.equals(ARG) || kind.equals(VAR)) {
+		}
+		else if(kind.equals(ARG) || kind.equals(VAR)) {
 			switch(kind) {
 			case ARG:
-				i = sub_arg_index++;
+				i = subArgIdx++;
 				break;
 			case VAR:
-				i = sub_var_index++;
+				i = subVarIdx++;
 				break;
 			}
-			tmp = sub_scope.put(name, new Values_ST(type,kind, i));
+			tmp = subScope.put(name, new Values(type, kind, i));
+
 			if(tmp != null) {
-				// multiple declarations of sub_routine identifier
-				return;
+				System.out.println("Multiple declarations of subroutine identifier: " + name);
+				System.exit(1);
 			}
-		} else {
-			System.out.println("invalid: " + name + ", " + kind);
 		}
-		
-		System.out.println("class_scope: " + class_scope.toString());
-		System.out.println("sub_scope: " + sub_scope.toString());
+		else
+			throw new IllegalArgumentException("Identifier '" + name + "' has an invalid 'kind': " + kind);
 	}
 	
-	// count the number of variables in the proper scope
-	public int variable_count(String kind) {
+	// return number of variables in the given kind
+	public int VarCount(String kind) {
 		int count = 0;
-		Hashtable<String, Values_ST> temp_scope = null;
+		Hashtable<String, Values> tmpScope = null;
 		Enumeration<String> e;
 		
 		if(kind.equals(SymbolTable.VAR) || kind.equals(SymbolTable.ARG))
-			temp_scope = sub_scope;
-		else if(kind.equals(SymbolTable.FIELD))
-			temp_scope = class_scope;
+			tmpScope = subScope;
+		else if(kind.equals(SymbolTable.FIELD) || kind.equals(SymbolTable.STATIC))
+			tmpScope = classScope;
 		else {
-			System.out.println("no kind");
-		}
-		e = temp_scope.keys();
-		while(e.hasMoreElements()) {
-			String k = e.nextElement();
-			if(temp_scope.get(k) != null && temp_scope.get(k).getKind().equals(kind))
-				count++;
+			System.out.println("Expected static, field, argument, or variable kind.");
+			System.exit(1);
 		}
 		
+		e = tmpScope.keys();
+		while(e.hasMoreElements()) {
+			String key = e.nextElement();
+			if(tmpScope.get(key) != null && tmpScope.get(key).getKind().equals(kind))
+				count++;
+		}
 		return count;
 	}
 	
-	
-	// return kind of identifier
-	public String kind_of(String name) {
-		Values_ST temp = current_scope.get(name);
-		String kind = null;
-		
-		if(temp != null) {
-			return temp.getKind();
-		}
-		if(current_scope != class_scope) {
-			temp = class_scope.get(name);
-			if(temp != null) {
-				return temp.getKind();
-			}
-		}
-		return "0";
+	// create subroutine scope
+	public void startSubroutine(String subtype) {
+		subScope.clear();
+		currScope = subScope;
+		subArgIdx = subtype.equals("method") ? 1 : 0;
+		subVarIdx = 0;
 	}
 	
-	// return type of identifier
-	public String type_of(String name) {
-		Values_ST temp = current_scope.get(name);
-		
-		if(temp != null) {
-			return temp.getType();
-		}
-		if(current_scope != class_scope) {
-			temp = class_scope.get(name);
-			if(temp != null) {
-				return temp.getType();
-			}
-		}
-		
-		return "0";
-	}
-	
-	// return index of indentifier
-	public int index_of(String name) {
-		Values_ST temp = current_scope.get(name);
-		
-		if(temp != null) {
-			return temp.getIndex();
-		}
-		if(current_scope != class_scope) {
-			temp = class_scope.get(name);
-			if(temp != null) {
-				return temp.getIndex();
-			}
+	// returns index of identifier
+	public int IndexOf(String name) {
+		Values tmp = currScope.get(name);
+		if(tmp != null)
+			return tmp.getIndex();
+
+		if(currScope != classScope) {
+			tmp = classScope.get(name);
+			if(tmp != null)
+				return tmp.getIndex();
 		}
 		return -1;
 	}
+	
+	// returns the kind of the identifier
+	public String KindOf(String name) {
+		Values tmp = currScope.get(name);
+		String kind = null;
 		
+		if(tmp != null)
+			return tmp.getKind();
+		
+		if(currScope != classScope) {
+			tmp = classScope.get(name);
+			if(tmp != null)
+				return tmp.getKind();
+		}
+		
+		return "NONE";
+	}
 	
-	
-	
+	// returns type of identifier
+	public String TypeOf(String name) {
+		Values tmp = currScope.get(name);
+		
+		if(tmp != null)
+			return tmp.getType();
+		
+		if(currScope != classScope) {
+			tmp = classScope.get(name);
+			if(tmp != null)
+				return tmp.getType();
+		}
+		
+		return null;
+	}
 	
 }

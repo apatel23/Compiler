@@ -1,16 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.BufferedWriter;
 import java.util.Vector;
 
 public class Main {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		if(args.length < 1) return;
 		String arg = args[0];
 		String home10path = arg+"//";
@@ -31,17 +26,21 @@ public class Main {
 			if(ext.equals(".jack"))
 				jFiles.add(files);
 		}
-
+		
+		// Create Parser object
 		Parser p;
-		//VMOutput vmo;
 		
 		try {
 				for(File f : jFiles) {
-				System.out.println("------" + f.getName() + "------");
-				jackfile = home10path + f.getName();
-				path = home10path + f.getName().substring(0, f.getName().indexOf('.')) + "T";
-				p = new Parser(jackfile, path);	
-			}
+					String file = f.getName();
+					System.out.println("Jack file: " + file);
+					System.out.println("VM code outputted to: src/" + arg + 
+									file.substring(0, file.length() - 4) + "vm" );
+					jackfile = home10path + f.getName();
+					path = home10path + f.getName().substring(0, f.getName().indexOf('.'));
+					p = new Parser(jackfile, path);	
+				}
+
 				
 		} 
 		catch(FileNotFoundException fnfe) {
@@ -51,4 +50,5 @@ public class Main {
 			ioe.printStackTrace();
 		}
 	}
+
 }

@@ -5,21 +5,21 @@
   <classVarDec>
     <keyword> field </keyword>
     <keyword> int </keyword>
-    <identifier> x (FIELD, , 0) </identifier>
+    <identifier> x (FIELD, defined, 0) </identifier>
     <symbol> , </symbol>
-    <identifier> y (FIELD, , 1) </identifier>
+    <identifier> y (FIELD, defined, 1) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <classVarDec>
     <keyword> field </keyword>
     <keyword> int </keyword>
-    <identifier> size (FIELD, , 2) </identifier>
+    <identifier> size (FIELD, defined, 2) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <subroutineDec>
     <keyword> constructor </keyword>
-    <identifier> Square </identifier>
-    <identifier> new </identifier>
+    <identifier> Square (class, used) </identifier>
+    <identifier> new (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
       <keyword> int</keyword>
@@ -70,7 +70,7 @@
         </letStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> draw (0, used, -1)  </identifier>
+          <identifier> draw (subroutine or class, used)  </identifier>
           <symbol> ( </symbol>
           <expressionList>
           </expressionList>
@@ -93,7 +93,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> dispose </identifier>
+    <identifier> dispose (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -103,9 +103,9 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Memory (0, used, -1)  </identifier>
+          <identifier> Memory (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> deAlloc </identifier>
+          <identifier> deAlloc (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -128,7 +128,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> draw </identifier>
+    <identifier> draw (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -138,9 +138,9 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen (0, used, -1)  </identifier>
+          <identifier> Screen (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> setColor </identifier>
+          <identifier> setColor (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -154,9 +154,9 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen (0, used, -1)  </identifier>
+          <identifier> Screen (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> drawRectangle </identifier>
+          <identifier> drawRectangle (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -205,7 +205,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> erase </identifier>
+    <identifier> erase (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -215,9 +215,9 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen (0, used, -1)  </identifier>
+          <identifier> Screen (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> setColor </identifier>
+          <identifier> setColor (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -231,9 +231,9 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen (0, used, -1)  </identifier>
+          <identifier> Screen (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> drawRectangle </identifier>
+          <identifier> drawRectangle (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -282,7 +282,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> incSize </identifier>
+    <identifier> incSize (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -347,7 +347,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> erase (0, used, -1)  </identifier>
+              <identifier> erase (subroutine or class, used)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -371,7 +371,7 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> draw (0, used, -1)  </identifier>
+              <identifier> draw (subroutine or class, used)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -392,7 +392,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> decSize </identifier>
+    <identifier> decSize (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -417,7 +417,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> erase (0, used, -1)  </identifier>
+              <identifier> erase (subroutine or class, used)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -441,7 +441,7 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> draw (0, used, -1)  </identifier>
+              <identifier> draw (subroutine or class, used)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -462,7 +462,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> moveUp </identifier>
+    <identifier> moveUp (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -487,9 +487,9 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -503,9 +503,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -574,9 +574,9 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -590,9 +590,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -644,7 +644,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> moveDown </identifier>
+    <identifier> moveDown (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -679,9 +679,9 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -695,9 +695,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -752,9 +752,9 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -768,9 +768,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -836,7 +836,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> moveLeft </identifier>
+    <identifier> moveLeft (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -861,9 +861,9 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -877,9 +877,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -948,9 +948,9 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -964,9 +964,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -1018,7 +1018,7 @@
   <subroutineDec>
     <keyword> method </keyword>
     <keyword> void </keyword>
-    <identifier> moveRight </identifier>
+    <identifier> moveRight (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -1053,9 +1053,9 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -1069,9 +1069,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -1126,9 +1126,9 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> setColor </identifier>
+              <identifier> setColor (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -1142,9 +1142,9 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen (0, used, -1)  </identifier>
+              <identifier> Screen (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> drawRectangle </identifier>
+              <identifier> drawRectangle (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>

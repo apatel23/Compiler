@@ -1,143 +1,155 @@
-import java.io.File;
+import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 
-
+// Writes Virtual Machine code into a .vm file
 public class VMOutput {
-
-	FileWriter fw;
 	
-	// create new file, ready for writing
-	public VMOutput(String output) throws IOException {
-		File fe = new File(output);
+	private BufferedWriter bw;
+	
+	// create new file
+	public VMOutput(String out) throws IOException {
+		File f = new File(out);
 		
-		if(!fe.exists()) {
-			fe.createNewFile();
-		}
+		if(!f.exists())
+			f.createNewFile();
+		FileWriter fw = new FileWriter(f.getAbsoluteFile());
 		
-		fw = new FileWriter(fe.getAbsoluteFile());
+		bw = new BufferedWriter(fw);
 	}
-
+	
 	// write a push command
-	public void push(String segment, int index) throws IOException {
-		String s = "";
+	public void writePush(String segment, int index) throws IOException {
+		String seg = "";
 		switch(segment) {
-		case SymbolTable.ARG:
-			s = "argument";
+		case "CONST":			
+			seg = "constant";
 			break;
-		case "CONST":
-			s = "constant";
+		case SymbolTable.ARG:		
+			seg = "argument";
 			break;
-		case "LOCAL":
-			s = "local";
+		case "LOCAL":			
+			seg = "local";
 			break;
-		case SymbolTable.FIELD:
-			s = "this";
+		case SymbolTable.VAR:		
+			seg = "local";
 			break;
-		case "POINTER":
-			s = "pointer";
+		case SymbolTable.STATIC:	
+			seg = "static";
 			break;
-		case SymbolTable.STATIC:
-			s = "static";
+		case SymbolTable.FIELD:	 	
+			seg = "this";
 			break;
-		case "TEMP":
-			s = "temp";
+		case "THIS":			
+			seg = "this";
 			break;
-		case "THAT":
-			s = "that";
+		case "THAT":			
+			seg = "that";
 			break;
-		case "THIS":
-			s = "this";
+		case "POINTER":			
+			seg = "pointer";
+			break;
+		case "TEMP":			
+			seg = "temp";
 			break;
 		}
 		
-		if(!s.isEmpty()) {
-			fw.write("push " + s + " " + index + "\n");
-		}
+		if(!seg.isEmpty())
+			bw.write("push " + seg + " " + index + "\n");
 	}
 	
-	// writes a pop command
-	public void pop(String segment, int index) throws IOException {
-		String s = "";
+	// write a pop command
+	public void writePop(String segment, int index) throws IOException {
+		String seg = "";
 		switch(segment) {
-		case SymbolTable.ARG:
-			s = "argument";
+		case "CONST":			
+			seg = "constant";
 			break;
-		case "CONST":
-			s = "constant";
+		case SymbolTable.ARG:		
+			seg = "argument";
 			break;
-		case "LOCAL":
-			s = "local";
+		case "LOCAL":			
+			seg = "local";
 			break;
-		case SymbolTable.FIELD:
-			s = "this";
+		case SymbolTable.VAR:		
+			seg = "local";
 			break;
-		case "POINTER":
-			s = "pointer";
+		case SymbolTable.STATIC:	
+			seg = "static";
 			break;
-		case SymbolTable.STATIC:
-			s = "static";
+		case SymbolTable.FIELD:	 	
+			seg = "this";
 			break;
-		case "TEMP":
-			s = "temp";
+		case "THIS":			
+			seg = "this";
 			break;
-		case "THAT":
-			s = "that";
+		case "THAT":			
+			seg = "that";
 			break;
-		case "THIS":
-			s = "this";
+		case "POINTER":			
+			seg = "pointer";
+			break;
+		case "TEMP":			
+			seg = "temp";
 			break;
 		}
-		
-		if(!s.isEmpty()) {
-			fw.write("pop " + s + " " + index + "\n");
+
+		if(!seg.isEmpty())
+			bw.write("pop " + seg + " " + index + "\n");
+	}
+	
+	// write arithmetic command
+	public void WriteArithmetic(String command) throws IOException {
+		if(command.equals("ADD") || command.equals("SUB") || command.equals("NEG") ||
+				command.equals("EQ") || command.equals("GT") || command.equals("LT") || 
+				command.equals("AND") || command.equals("OR") || command.equals("NOT")) {
+			command = command.toLowerCase(); //may not be necessary
+			bw.write(command + "\n");
+		}
+		else {
+			System.out.println("Invalid VM command: " + command);
+			System.exit(1);
 		}
 	}
 	
-	
-	public void arithmetic(String command) throws IOException {
-		if(command.equals("ADD") || command.equals("SUB") || 
-				command.equals("NEG") || command.equals("EQ") ||
-				command.equals("GT") || command.equals("LT") ||
-				command.equals("AND") || command.equals("OR") ||
-				command.equals("NOT")) {
-			command = command.toLowerCase();
-			fw.write(command + "\n");
-		} else {
-			// invalid command
-			return;
-		}
+	// write label command
+	public void WriteLabel(String label) throws IOException {
+		bw.write("label " + label + "\n");
 	}
 	
-	public void label(String label) throws IOException {
-		fw.write("label " + label + "\n");
+	// write goto command
+	public void WriteGoto(String label) throws IOException {
+		bw.write("goto " + label + "\n");
 	}
 	
-	public void goto_label(String label) throws IOException {
-		fw.write("goto " + label + "\n");
+	// write if-goto command
+	public void WriteIf(String label) throws IOException {
+		bw.write("if-goto " + label + "\n");
 	}
 	
-	public void if_label(String label) throws IOException {
-		fw.write("if-goto " + label + "\n");
+	// write call command
+	public void writeCall(String name, int nArgs) throws IOException {
+		bw.write("call " + name + " " + nArgs + "\n");
 	}
 	
-	public void call(String name, int args) throws IOException {
-		fw.write("call " + name + " " + args + "\n");
+	// write function command
+	public void writeFunction(String name, int nLocals) throws IOException {
+		bw.write("function " + name + " " + nLocals + "\n");
 	}
 	
-	public void func(String name, int locals) throws IOException {
-		fw.write("function " + name + " " + locals + "\n");
+	// write return command
+	public void writeReturn() throws IOException {
+		bw.write("return\n");
 	}
 	
-	public void ret() throws IOException {
-		fw.write("return\n");
+	// write comment
+	public void writeComment(String msg) throws IOException {
+		bw.write("//" + msg + "\n");
 	}
 	
-	public void comment(String msg) throws IOException {
-		fw.write("// " + msg + "\n");
-	}
-	
+	// close the output file
 	public void close() throws IOException {
-		fw.close();
+		bw.close();
 	}
 }

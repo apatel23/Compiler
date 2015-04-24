@@ -5,7 +5,7 @@
   <subroutineDec>
     <keyword> function </keyword>
     <keyword> void </keyword>
-    <identifier> main </identifier>
+    <identifier> main (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -23,9 +23,9 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Main (0, used, -1)  </identifier>
+          <identifier> Main (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> fillMemory </identifier>
+          <identifier> fillMemory (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -57,9 +57,9 @@
           <identifier> value (VAR, used, 1) </identifier>
           <expression>
             <term>
-              <identifier> Memory (0, used, -1) </identifier>
+              <identifier> Memory (class or subroutine, used) </identifier>
               <symbol> . </symbol>
-              <identifier> peek </identifier>
+              <identifier> peek (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -76,9 +76,9 @@
         </letStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Main (0, used, -1)  </identifier>
+          <identifier> Main (subroutine or class, used)  </identifier>
           <symbol> . </symbol>
-          <identifier> convert </identifier>
+          <identifier> convert (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
@@ -101,7 +101,7 @@
   <subroutineDec>
     <keyword> function </keyword>
     <keyword> void </keyword>
-    <identifier> convert </identifier>
+    <identifier> convert (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
       <keyword> int</keyword>
@@ -167,9 +167,9 @@
               <identifier> mask (VAR, used, 0) </identifier>
               <expression>
                 <term>
-                  <identifier> Main (0, used, -1) </identifier>
+                  <identifier> Main (class or subroutine, used) </identifier>
                   <symbol> . </symbol>
-                  <identifier> nextMask </identifier>
+                  <identifier> nextMask (subroutine, used) </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                     <expression>
@@ -186,9 +186,9 @@
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Memory (0, used, -1)  </identifier>
+              <identifier> Memory (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> poke </identifier>
+              <identifier> poke (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
@@ -270,9 +270,9 @@
                   <statements>
                     <doStatement>
                       <keyword> do </keyword>
-                      <identifier> Memory (0, used, -1)  </identifier>
+                      <identifier> Memory (subroutine or class, used)  </identifier>
                       <symbol> . </symbol>
-                      <identifier> poke </identifier>
+                      <identifier> poke (subroutine, used) </identifier>
                       <symbol> ( </symbol>
                       <expressionList>
                         <expression>
@@ -301,9 +301,9 @@
                   <statements>
                     <doStatement>
                       <keyword> do </keyword>
-                      <identifier> Memory (0, used, -1)  </identifier>
+                      <identifier> Memory (subroutine or class, used)  </identifier>
                       <symbol> . </symbol>
-                      <identifier> poke </identifier>
+                      <identifier> poke (subroutine, used) </identifier>
                       <symbol> ( </symbol>
                       <expressionList>
                         <expression>
@@ -361,7 +361,7 @@
   <subroutineDec>
     <keyword> function </keyword>
     <keyword> int </keyword>
-    <identifier> nextMask </identifier>
+    <identifier> nextMask (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
       <keyword> int</keyword>
@@ -423,7 +423,7 @@
   <subroutineDec>
     <keyword> function </keyword>
     <keyword> void </keyword>
-    <identifier> fillMemory </identifier>
+    <identifier> fillMemory (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
       <keyword> int</keyword>
@@ -456,9 +456,9 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Memory (0, used, -1)  </identifier>
+              <identifier> Memory (subroutine or class, used)  </identifier>
               <symbol> . </symbol>
-              <identifier> poke </identifier>
+              <identifier> poke (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>

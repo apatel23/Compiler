@@ -5,7 +5,7 @@
   <subroutineDec>
     <keyword> function </keyword>
     <keyword> void </keyword>
-    <identifier> main </identifier>
+    <identifier> main (subroutine, defined) </identifier>
     <symbol> ( </symbol>
     <parameterList>
     </parameterList>
@@ -14,7 +14,7 @@
       <symbol> { </symbol>
       <varDec>
         <keyword> var </keyword>
-        <identifier> SquareGame </identifier>
+        <identifier> SquareGame (class, used) </identifier>
         <identifier> game (VAR, defined, 0) </identifier>
         <symbol> ; </symbol>
       </varDec>
@@ -24,9 +24,9 @@
           <identifier> game (VAR, used, 0) </identifier>
           <expression>
             <term>
-              <identifier> SquareGame (0, used, -1) </identifier>
+              <identifier> SquareGame (class or subroutine, used) </identifier>
               <symbol> . </symbol>
-              <identifier> new </identifier>
+              <identifier> new (subroutine, used) </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -40,7 +40,7 @@
           <keyword> do </keyword>
           <identifier> game (VAR, used, 0)  </identifier>
           <symbol> . </symbol>
-          <identifier> run </identifier>
+          <identifier> run (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
           </expressionList>
@@ -51,7 +51,7 @@
           <keyword> do </keyword>
           <identifier> game (VAR, used, 0)  </identifier>
           <symbol> . </symbol>
-          <identifier> dispose </identifier>
+          <identifier> dispose (subroutine, used) </identifier>
           <symbol> ( </symbol>
           <expressionList>
           </expressionList>

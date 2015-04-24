@@ -3,132 +3,147 @@ push constant 8001
 push constant 16
 push constant 1
 neg
-// do Main.fillMemory(8001, 16, -1)
+//do Main.fillMemory(8001, 16, -1)
 call Main.fillMemory 3
 pop temp 0
 push constant 8000
 call Memory.peek 1
-// letvalue = Memory.peek(8000)
-// do Main.convert(value)
+pop local 1
+//let value = Memory.peek(8000)
+push local 1
+//do Main.convert(value)
 call Main.convert 1
 pop temp 0
-// return 
+//return 
 push constant 0
 return
 function Main.convert 3
 push constant 0
 not
-// letloop = true
+pop local 2
+//let loop = true
 label WHILE_EXP0
-// while(loop)
+push local 2
+//while(loop)
 not
 if-goto WHILE_END0
+push local 1
 push constant 1
 add
-// letposition = position+1
+pop local 1
+//let position = position+1
+push local 0
 call Main.nextMask 1
-// letmask = Main.nextMask(mask)
+pop local 0
+//let mask = Main.nextMask(mask)
 push constant 9000
+push local 1
 add
-// do Memory.poke(9000+position, mask)
+push local 0
+//do Memory.poke(9000+position, mask)
 call Memory.poke 2
 pop temp 0
+push local 1
 push constant 16
 gt
 not
-// do Memory.poke(9000+position, mask)if(~(position>16))
+//if(~(position>16))
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
 push argument 0
+push local 0
 and
 push constant 0
 eq
 not
-// do Memory.poke(9000+position, mask)if(~(position>16))if(~((value&mask)=0))
+//if(~((value&mask)=0))
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
 push constant 8000
+push local 1
 add
 push constant 1
-// do Memory.poke(8000+position, 1)
+//do Memory.poke(8000+position, 1)
 call Memory.poke 2
 pop temp 0
-// END_IF1
+//END_IF1
 goto IF_END1
 label IF_FALSE1
-// do Memory.poke(8000+position, 1)else
+//else
 push constant 8000
+push local 1
 add
 push constant 0
-// do Memory.poke(8000+position, 0)
+//do Memory.poke(8000+position, 0)
 call Memory.poke 2
 pop temp 0
-// END_ELSE1
+//END_ELSE1
 label IF_END1
-// END_IF0
+//END_IF0
 goto IF_END0
 label IF_FALSE0
-// do Memory.poke(8000+position, 0)else
+//else
 push constant 0
-// letloop = false
-// END_ELSE0
+pop local 2
+//let loop = false
+//END_ELSE0
 label IF_END0
 goto WHILE_EXP0
 label WHILE_END0
-// END_WHILE 0
-// return 
+//END_WHILE0
+//return 
 push constant 0
 return
 function Main.nextMask 0
 push argument 0
 push constant 0
 eq
-// return if(mask=0)
+//if(mask=0)
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
 push constant 1
-// return 1
+//return 1
 return
-// END_IF2
+//END_IF2
 goto IF_END2
 label IF_FALSE2
-// return 1else
+//else
 push argument 0
 push constant 2
 call Math.multiply 2
-// return mask*2
+//return mask*2
 return
-// END_ELSE2
+//END_ELSE2
 label IF_END2
 function Main.fillMemory 0
 label WHILE_EXP1
 push argument 1
 push constant 0
 gt
-// while(length>0)
+//while(length>0)
 not
 if-goto WHILE_END1
 push argument 0
 push argument 2
-// do Memory.poke(startAddress, value)
+//do Memory.poke(startAddress, value)
 call Memory.poke 2
 pop temp 0
 push argument 1
 push constant 1
 sub
 pop argument 1
-// letlength = length-1
+//let length = length-1
 push argument 0
 push constant 1
 add
 pop argument 0
-// letstartAddress = startAddress+1
+//let startAddress = startAddress+1
 goto WHILE_EXP1
 label WHILE_END1
-// END_WHILE 1
-// return 
+//END_WHILE1
+//return 
 push constant 0
 return

@@ -1,0 +1,257 @@
+function Bat.new 0
+push constant 5
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+//let x = Ax
+push argument 1
+pop this 1
+//let y = Ay
+push argument 2
+pop this 2
+//let width = Awidth
+push argument 3
+pop this 3
+//let height = Aheight
+push constant 2
+pop this 4
+//let direction = 2
+push pointer 0
+//do show()
+call Bat.show 1
+pop temp 0
+push pointer 0
+//return this
+return
+function Bat.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+//do Memory.deAlloc(this)
+call Memory.deAlloc 1
+pop temp 0
+//return 
+push constant 0
+return
+function Bat.show 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+//do Screen.setColor(true)
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+//do draw()
+call Bat.draw 1
+pop temp 0
+//return 
+push constant 0
+return
+function Bat.hide 0
+push argument 0
+pop pointer 0
+push constant 0
+//do Screen.setColor(false)
+call Screen.setColor 1
+pop temp 0
+push pointer 0
+//do draw()
+call Bat.draw 1
+pop temp 0
+//return 
+push constant 0
+return
+function Bat.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+//do Screen.drawRectangle(x, y, x+width, y+height)
+call Screen.drawRectangle 4
+pop temp 0
+//return 
+push constant 0
+return
+function Bat.setDirection 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 4
+//let direction = Adirection
+//return 
+push constant 0
+return
+function Bat.getLeft 0
+push argument 0
+pop pointer 0
+push this 0
+//return x
+return
+function Bat.getRight 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+add
+//return x+width
+return
+function Bat.setWidth 0
+push argument 0
+pop pointer 0
+push pointer 0
+//do hide()
+call Bat.hide 1
+pop temp 0
+push argument 1
+pop this 2
+//let width = Awidth
+push pointer 0
+//do show()
+call Bat.show 1
+pop temp 0
+//return 
+push constant 0
+return
+function Bat.move 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 1
+eq
+//if(direction=1)
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 4
+sub
+pop this 0
+//let x = x-4
+push this 0
+push constant 0
+lt
+//if(x<0)
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop this 0
+//let x = 0
+//END_IF1
+goto IF_END1
+label IF_FALSE1
+label IF_END1
+push constant 0
+//do Screen.setColor(false)
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 2
+add
+push constant 1
+add
+push this 1
+push this 0
+push this 2
+add
+push constant 4
+add
+push this 1
+push this 3
+add
+//do Screen.drawRectangle((x+width)+1, y, (x+width)+4, y+height)
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+//do Screen.setColor(true)
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 0
+push constant 3
+add
+push this 1
+push this 3
+add
+//do Screen.drawRectangle(x, y, x+3, y+height)
+call Screen.drawRectangle 4
+pop temp 0
+//END_IF0
+goto IF_END0
+label IF_FALSE0
+//else
+push this 0
+push constant 4
+add
+pop this 0
+//let x = x+4
+push this 0
+push this 2
+add
+push constant 511
+gt
+//if((x+width)>511)
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 511
+push this 2
+sub
+pop this 0
+//let x = 511-width
+//END_IF2
+goto IF_END2
+label IF_FALSE2
+label IF_END2
+push constant 0
+//do Screen.setColor(false)
+call Screen.setColor 1
+pop temp 0
+push this 0
+push constant 4
+sub
+push this 1
+push this 0
+push constant 1
+sub
+push this 1
+push this 3
+add
+//do Screen.drawRectangle(x-4, y, x-1, y+height)
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+//do Screen.setColor(true)
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 2
+add
+push constant 3
+sub
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+//do Screen.drawRectangle((x+width)-3, y, x+width, y+height)
+call Screen.drawRectangle 4
+pop temp 0
+//END_ELSE0
+label IF_END0
+//return 
+push constant 0
+return

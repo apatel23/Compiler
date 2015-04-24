@@ -1,0 +1,1248 @@
+<class>
+  <keyword> class </keyword>
+  <identifier> PongGame (class, defined) </identifier>
+  <symbol> { </symbol>
+  <classVarDec>
+    <keyword> static </keyword>
+    <identifier> PongGame (class, used) </identifier>
+    <identifier> instance (STATIC, defined, 0) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <identifier> Bat (class, used) </identifier>
+    <identifier> bat (FIELD, defined, 0) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <identifier> Ball (class, used) </identifier>
+    <identifier> ball (FIELD, defined, 1) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> wall (FIELD, defined, 2) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> boolean </keyword>
+    <identifier> exit (FIELD, defined, 3) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> score (FIELD, defined, 4) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> lastWall (FIELD, defined, 5) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <classVarDec>
+    <keyword> field </keyword>
+    <keyword> int </keyword>
+    <identifier> batWidth (FIELD, defined, 6) </identifier>
+    <symbol> ; </symbol>
+  </classVarDec>
+  <subroutineDec>
+    <keyword> constructor </keyword>
+    <identifier> PongGame (class, used) </identifier>
+    <identifier> new (subroutine, defined) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> Screen (subroutine or class, used)  </identifier>
+          <symbol> . </symbol>
+          <identifier> clearScreen (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> batWidth (FIELD, used, 6) </identifier>
+          <expression>
+            <term>
+              <integerConstant> 50 </integerConstant>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> bat (FIELD, used, 0) </identifier>
+          <expression>
+            <term>
+              <identifier> Bat (class or subroutine, used) </identifier>
+              <symbol> . </symbol>
+              <identifier> new (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <integerConstant> 230 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 229 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <identifier> batWidth (FIELD, used, 6) </identifier>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 7 </integerConstant>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> ball (FIELD, used, 1) </identifier>
+          <expression>
+            <term>
+              <identifier> Ball (class or subroutine, used) </identifier>
+              <symbol> . </symbol>
+              <identifier> new (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <integerConstant> 253 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 222 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 0 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 511 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 0 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 229 </integerConstant>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> ball (FIELD, used, 1)  </identifier>
+          <symbol> . </symbol>
+          <identifier> setDestination (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <integerConstant> 400 </integerConstant>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <integerConstant> 0 </integerConstant>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> Screen (subroutine or class, used)  </identifier>
+          <symbol> . </symbol>
+          <identifier> drawRectangle (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <integerConstant> 0 </integerConstant>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <integerConstant> 238 </integerConstant>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <integerConstant> 511 </integerConstant>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <integerConstant> 240 </integerConstant>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> Output (subroutine or class, used)  </identifier>
+          <symbol> . </symbol>
+          <identifier> moveCursor (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <integerConstant> 22 </integerConstant>
+              </term>
+            </expression>
+            <symbol> , </symbol>
+            <expression>
+              <term>
+                <integerConstant> 0 </integerConstant>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> Output (subroutine or class, used)  </identifier>
+          <symbol> . </symbol>
+          <identifier> printString (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <stringConstant> Score: 0 </stringConstant>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> exit (FIELD, used, 3) </identifier>
+          <expression>
+            <term>
+              <keyword> false </keyword>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> score (FIELD, used, 4) </identifier>
+          <expression>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> wall (FIELD, used, 2) </identifier>
+          <expression>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> lastWall (FIELD, used, 5) </identifier>
+          <expression>
+            <term>
+              <integerConstant> 0 </integerConstant>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <keyword> this </keyword>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> dispose (subroutine, defined) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> bat (FIELD, used, 0)  </identifier>
+          <symbol> . </symbol>
+          <identifier> dispose (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> ball (FIELD, used, 1)  </identifier>
+          <symbol> . </symbol>
+          <identifier> dispose (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <doStatement>
+          <keyword> do </keyword>
+          <identifier> Memory (subroutine or class, used)  </identifier>
+          <symbol> . </symbol>
+          <identifier> deAlloc (subroutine, used) </identifier>
+          <symbol> ( </symbol>
+          <expressionList>
+            <expression>
+              <term>
+                <keyword> this </keyword>
+              </term>
+            </expression>
+          </expressionList>
+          <symbol> ) </symbol>
+          <symbol> ; </symbol>
+        </doStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> newInstance (subroutine, defined) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> instance (STATIC, used, 0) </identifier>
+          <expression>
+            <term>
+              <identifier> PongGame (class or subroutine, used) </identifier>
+              <symbol> . </symbol>
+              <identifier> new (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <identifier> PongGame (class, used) </identifier>
+    <identifier> getInstance (subroutine, defined) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <statements>
+        <returnStatement>
+          <keyword> return </keyword>
+          <expression>
+            <term>
+              <identifier> instance (STATIC, used, 0) </identifier>
+            </term>
+          </expression>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> run (subroutine, defined) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> char </keyword>
+        <identifier> key (VAR, defined, 0) </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <whileStatement>
+          <keyword> while </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <symbol> ~ </symbol>
+              <term>
+                <identifier> exit (FIELD, used, 3) </identifier>
+              </term>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statements>
+            <whileStatement>
+              <keyword> while </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> key (VAR, used, 0) </identifier>
+                    </term>
+                    <symbol> = </symbol>
+                    <term>
+                      <integerConstant> 0 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+                <symbol> &amp; </symbol>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ~ </symbol>
+                      <term>
+                        <identifier> exit (FIELD, used, 3) </identifier>
+                      </term>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statements>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> key (VAR, used, 0) </identifier>
+                  <expression>
+                    <term>
+                      <identifier> Keyboard (class or subroutine, used) </identifier>
+                      <symbol> . </symbol>
+                      <identifier> keyPressed (subroutine, used) </identifier>
+                      <symbol> ( </symbol>
+                      <expressionList>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> = </symbol>
+                  <symbol> ; </symbol>
+                </letStatement>
+                <doStatement>
+                  <keyword> do </keyword>
+                  <identifier> bat (FIELD, used, 0)  </identifier>
+                  <symbol> . </symbol>
+                  <identifier> move (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                  <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                  <keyword> do </keyword>
+                  <identifier> moveBall (subroutine or class, used)  </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                  <symbol> ; </symbol>
+                </doStatement>
+              </statements>
+              <symbol> } </symbol>
+            </whileStatement>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> key (VAR, used, 0) </identifier>
+                </term>
+                <symbol> = </symbol>
+                <term>
+                  <integerConstant> 130 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statements>
+                <doStatement>
+                  <keyword> do </keyword>
+                  <identifier> bat (FIELD, used, 0)  </identifier>
+                  <symbol> . </symbol>
+                  <identifier> setDirection (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                    <expression>
+                      <term>
+                        <integerConstant> 1 </integerConstant>
+                      </term>
+                    </expression>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                  <symbol> ; </symbol>
+                </doStatement>
+              </statements>
+              <symbol> } </symbol>
+              <keyword> else </keyword>
+              <symbol> { </symbol>
+              <statements>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <identifier> key (VAR, used, 0) </identifier>
+                    </term>
+                    <symbol> = </symbol>
+                    <term>
+                      <integerConstant> 132 </integerConstant>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statements>
+                    <doStatement>
+                      <keyword> do </keyword>
+                      <identifier> bat (FIELD, used, 0)  </identifier>
+                      <symbol> . </symbol>
+                      <identifier> setDirection (subroutine, used) </identifier>
+                      <symbol> ( </symbol>
+                      <expressionList>
+                        <expression>
+                          <term>
+                            <integerConstant> 2 </integerConstant>
+                          </term>
+                        </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                      <symbol> ; </symbol>
+                    </doStatement>
+                  </statements>
+                  <symbol> } </symbol>
+                  <keyword> else </keyword>
+                  <symbol> { </symbol>
+                  <statements>
+                    <ifStatement>
+                      <keyword> if </keyword>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> key (VAR, used, 0) </identifier>
+                        </term>
+                        <symbol> = </symbol>
+                        <term>
+                          <integerConstant> 140 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                      <symbol> { </symbol>
+                      <statements>
+                        <letStatement>
+                          <keyword> let </keyword>
+                          <identifier> exit (FIELD, used, 3) </identifier>
+                          <expression>
+                            <term>
+                              <keyword> true </keyword>
+                            </term>
+                          </expression>
+                          <symbol> = </symbol>
+                          <symbol> ; </symbol>
+                        </letStatement>
+                      </statements>
+                      <symbol> } </symbol>
+                    </ifStatement>
+                  </statements>
+                  <symbol> } </symbol>
+                </ifStatement>
+              </statements>
+              <symbol> } </symbol>
+            </ifStatement>
+            <whileStatement>
+              <keyword> while </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ~ </symbol>
+                      <term>
+                        <symbol> ( </symbol>
+                        <expression>
+                          <term>
+                            <identifier> key (VAR, used, 0) </identifier>
+                          </term>
+                          <symbol> = </symbol>
+                          <term>
+                            <integerConstant> 0 </integerConstant>
+                          </term>
+                        </expression>
+                        <symbol> ) </symbol>
+                      </term>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+                <symbol> &amp; </symbol>
+                <term>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ~ </symbol>
+                      <term>
+                        <identifier> exit (FIELD, used, 3) </identifier>
+                      </term>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statements>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> key (VAR, used, 0) </identifier>
+                  <expression>
+                    <term>
+                      <identifier> Keyboard (class or subroutine, used) </identifier>
+                      <symbol> . </symbol>
+                      <identifier> keyPressed (subroutine, used) </identifier>
+                      <symbol> ( </symbol>
+                      <expressionList>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> = </symbol>
+                  <symbol> ; </symbol>
+                </letStatement>
+                <doStatement>
+                  <keyword> do </keyword>
+                  <identifier> bat (FIELD, used, 0)  </identifier>
+                  <symbol> . </symbol>
+                  <identifier> move (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                  <symbol> ; </symbol>
+                </doStatement>
+                <doStatement>
+                  <keyword> do </keyword>
+                  <identifier> moveBall (subroutine or class, used)  </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                  <symbol> ; </symbol>
+                </doStatement>
+              </statements>
+              <symbol> } </symbol>
+            </whileStatement>
+          </statements>
+          <symbol> } </symbol>
+        </whileStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <identifier> exit (FIELD, used, 3) </identifier>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statements>
+            <doStatement>
+              <keyword> do </keyword>
+              <identifier> Output (subroutine or class, used)  </identifier>
+              <symbol> . </symbol>
+              <identifier> moveCursor (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <integerConstant> 10 </integerConstant>
+                  </term>
+                </expression>
+                <symbol> , </symbol>
+                <expression>
+                  <term>
+                    <integerConstant> 27 </integerConstant>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+              <symbol> ; </symbol>
+            </doStatement>
+            <doStatement>
+              <keyword> do </keyword>
+              <identifier> Output (subroutine or class, used)  </identifier>
+              <symbol> . </symbol>
+              <identifier> printString (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <stringConstant> Game Over </stringConstant>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+              <symbol> ; </symbol>
+            </doStatement>
+          </statements>
+          <symbol> } </symbol>
+        </ifStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <subroutineDec>
+    <keyword> method </keyword>
+    <keyword> void </keyword>
+    <identifier> moveBall (subroutine, defined) </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> bouncingDirection (VAR, defined, 0) </identifier>
+        <symbol> , </symbol>
+        <identifier> batLeft (VAR, defined, 1) </identifier>
+        <symbol> , </symbol>
+        <identifier> batRight (VAR, defined, 2) </identifier>
+        <symbol> , </symbol>
+        <identifier> ballLeft (VAR, defined, 3) </identifier>
+        <symbol> , </symbol>
+        <identifier> ballRight (VAR, defined, 4) </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> wall (FIELD, used, 2) </identifier>
+          <expression>
+            <term>
+              <identifier> ball (FIELD, used, 1) </identifier>
+              <symbol> . </symbol>
+              <identifier> move (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+              </expressionList>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> = </symbol>
+          <symbol> ; </symbol>
+        </letStatement>
+        <ifStatement>
+          <keyword> if </keyword>
+          <symbol> ( </symbol>
+          <expression>
+            <term>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> wall (FIELD, used, 2) </identifier>
+                </term>
+                <symbol> &gt; </symbol>
+                <term>
+                  <integerConstant> 0 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+            </term>
+            <symbol> &amp; </symbol>
+            <term>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <symbol> ~ </symbol>
+                  <term>
+                    <symbol> ( </symbol>
+                    <expression>
+                      <term>
+                        <identifier> wall (FIELD, used, 2) </identifier>
+                      </term>
+                      <symbol> = </symbol>
+                      <term>
+                        <identifier> lastWall (FIELD, used, 5) </identifier>
+                      </term>
+                    </expression>
+                    <symbol> ) </symbol>
+                  </term>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+            </term>
+          </expression>
+          <symbol> ) </symbol>
+          <symbol> { </symbol>
+          <statements>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> lastWall (FIELD, used, 5) </identifier>
+              <expression>
+                <term>
+                  <identifier> wall (FIELD, used, 2) </identifier>
+                </term>
+              </expression>
+              <symbol> = </symbol>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> bouncingDirection (VAR, used, 0) </identifier>
+              <expression>
+                <term>
+                  <integerConstant> 0 </integerConstant>
+                </term>
+              </expression>
+              <symbol> = </symbol>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> batLeft (VAR, used, 1) </identifier>
+              <expression>
+                <term>
+                  <identifier> bat (FIELD, used, 0) </identifier>
+                  <symbol> . </symbol>
+                  <identifier> getLeft (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> = </symbol>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> batRight (VAR, used, 2) </identifier>
+              <expression>
+                <term>
+                  <identifier> bat (FIELD, used, 0) </identifier>
+                  <symbol> . </symbol>
+                  <identifier> getRight (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> = </symbol>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> ballLeft (VAR, used, 3) </identifier>
+              <expression>
+                <term>
+                  <identifier> ball (FIELD, used, 1) </identifier>
+                  <symbol> . </symbol>
+                  <identifier> getLeft (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> = </symbol>
+              <symbol> ; </symbol>
+            </letStatement>
+            <letStatement>
+              <keyword> let </keyword>
+              <identifier> ballRight (VAR, used, 4) </identifier>
+              <expression>
+                <term>
+                  <identifier> ball (FIELD, used, 1) </identifier>
+                  <symbol> . </symbol>
+                  <identifier> getRight (subroutine, used) </identifier>
+                  <symbol> ( </symbol>
+                  <expressionList>
+                  </expressionList>
+                  <symbol> ) </symbol>
+                </term>
+              </expression>
+              <symbol> = </symbol>
+              <symbol> ; </symbol>
+            </letStatement>
+            <ifStatement>
+              <keyword> if </keyword>
+              <symbol> ( </symbol>
+              <expression>
+                <term>
+                  <identifier> wall (FIELD, used, 2) </identifier>
+                </term>
+                <symbol> = </symbol>
+                <term>
+                  <integerConstant> 4 </integerConstant>
+                </term>
+              </expression>
+              <symbol> ) </symbol>
+              <symbol> { </symbol>
+              <statements>
+                <letStatement>
+                  <keyword> let </keyword>
+                  <identifier> exit (FIELD, used, 3) </identifier>
+                  <expression>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> batLeft (VAR, used, 1) </identifier>
+                        </term>
+                        <symbol> &gt; </symbol>
+                        <term>
+                          <identifier> ballRight (VAR, used, 4) </identifier>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                    <symbol> | </symbol>
+                    <term>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> batRight (VAR, used, 2) </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                          <identifier> ballLeft (VAR, used, 3) </identifier>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                    </term>
+                  </expression>
+                  <symbol> = </symbol>
+                  <symbol> ; </symbol>
+                </letStatement>
+                <ifStatement>
+                  <keyword> if </keyword>
+                  <symbol> ( </symbol>
+                  <expression>
+                    <term>
+                      <symbol> ~ </symbol>
+                      <term>
+                        <identifier> exit (FIELD, used, 3) </identifier>
+                      </term>
+                    </term>
+                  </expression>
+                  <symbol> ) </symbol>
+                  <symbol> { </symbol>
+                  <statements>
+                    <ifStatement>
+                      <keyword> if </keyword>
+                      <symbol> ( </symbol>
+                      <expression>
+                        <term>
+                          <identifier> ballRight (VAR, used, 4) </identifier>
+                        </term>
+                        <symbol> &lt; </symbol>
+                        <term>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <identifier> batLeft (VAR, used, 1) </identifier>
+                            </term>
+                            <symbol> + </symbol>
+                            <term>
+                              <integerConstant> 10 </integerConstant>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                        </term>
+                      </expression>
+                      <symbol> ) </symbol>
+                      <symbol> { </symbol>
+                      <statements>
+                        <letStatement>
+                          <keyword> let </keyword>
+                          <identifier> bouncingDirection (VAR, used, 0) </identifier>
+                          <expression>
+                            <term>
+                              <symbol> - </symbol>
+                              <term>
+                                <integerConstant> 1 </integerConstant>
+                              </term>
+                            </term>
+                          </expression>
+                          <symbol> = </symbol>
+                          <symbol> ; </symbol>
+                        </letStatement>
+                      </statements>
+                      <symbol> } </symbol>
+                      <keyword> else </keyword>
+                      <symbol> { </symbol>
+                      <statements>
+                        <ifStatement>
+                          <keyword> if </keyword>
+                          <symbol> ( </symbol>
+                          <expression>
+                            <term>
+                              <identifier> ballLeft (VAR, used, 3) </identifier>
+                            </term>
+                            <symbol> &gt; </symbol>
+                            <term>
+                              <symbol> ( </symbol>
+                              <expression>
+                                <term>
+                                  <identifier> batRight (VAR, used, 2) </identifier>
+                                </term>
+                                <symbol> - </symbol>
+                                <term>
+                                  <integerConstant> 10 </integerConstant>
+                                </term>
+                              </expression>
+                              <symbol> ) </symbol>
+                            </term>
+                          </expression>
+                          <symbol> ) </symbol>
+                          <symbol> { </symbol>
+                          <statements>
+                            <letStatement>
+                              <keyword> let </keyword>
+                              <identifier> bouncingDirection (VAR, used, 0) </identifier>
+                              <expression>
+                                <term>
+                                  <integerConstant> 1 </integerConstant>
+                                </term>
+                              </expression>
+                              <symbol> = </symbol>
+                              <symbol> ; </symbol>
+                            </letStatement>
+                          </statements>
+                          <symbol> } </symbol>
+                        </ifStatement>
+                      </statements>
+                      <symbol> } </symbol>
+                    </ifStatement>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> batWidth (FIELD, used, 6) </identifier>
+                      <expression>
+                        <term>
+                          <identifier> batWidth (FIELD, used, 6) </identifier>
+                        </term>
+                        <symbol> - </symbol>
+                        <term>
+                          <integerConstant> 2 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> = </symbol>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                    <doStatement>
+                      <keyword> do </keyword>
+                      <identifier> bat (FIELD, used, 0)  </identifier>
+                      <symbol> . </symbol>
+                      <identifier> setWidth (subroutine, used) </identifier>
+                      <symbol> ( </symbol>
+                      <expressionList>
+                        <expression>
+                          <term>
+                            <identifier> batWidth (FIELD, used, 6) </identifier>
+                          </term>
+                        </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                      <symbol> ; </symbol>
+                    </doStatement>
+                    <letStatement>
+                      <keyword> let </keyword>
+                      <identifier> score (FIELD, used, 4) </identifier>
+                      <expression>
+                        <term>
+                          <identifier> score (FIELD, used, 4) </identifier>
+                        </term>
+                        <symbol> + </symbol>
+                        <term>
+                          <integerConstant> 1 </integerConstant>
+                        </term>
+                      </expression>
+                      <symbol> = </symbol>
+                      <symbol> ; </symbol>
+                    </letStatement>
+                    <doStatement>
+                      <keyword> do </keyword>
+                      <identifier> Output (subroutine or class, used)  </identifier>
+                      <symbol> . </symbol>
+                      <identifier> moveCursor (subroutine, used) </identifier>
+                      <symbol> ( </symbol>
+                      <expressionList>
+                        <expression>
+                          <term>
+                            <integerConstant> 22 </integerConstant>
+                          </term>
+                        </expression>
+                        <symbol> , </symbol>
+                        <expression>
+                          <term>
+                            <integerConstant> 7 </integerConstant>
+                          </term>
+                        </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                      <symbol> ; </symbol>
+                    </doStatement>
+                    <doStatement>
+                      <keyword> do </keyword>
+                      <identifier> Output (subroutine or class, used)  </identifier>
+                      <symbol> . </symbol>
+                      <identifier> printInt (subroutine, used) </identifier>
+                      <symbol> ( </symbol>
+                      <expressionList>
+                        <expression>
+                          <term>
+                            <identifier> score (FIELD, used, 4) </identifier>
+                          </term>
+                        </expression>
+                      </expressionList>
+                      <symbol> ) </symbol>
+                      <symbol> ; </symbol>
+                    </doStatement>
+                  </statements>
+                  <symbol> } </symbol>
+                </ifStatement>
+              </statements>
+              <symbol> } </symbol>
+            </ifStatement>
+            <doStatement>
+              <keyword> do </keyword>
+              <identifier> ball (FIELD, used, 1)  </identifier>
+              <symbol> . </symbol>
+              <identifier> bounce (subroutine, used) </identifier>
+              <symbol> ( </symbol>
+              <expressionList>
+                <expression>
+                  <term>
+                    <identifier> bouncingDirection (VAR, used, 0) </identifier>
+                  </term>
+                </expression>
+              </expressionList>
+              <symbol> ) </symbol>
+              <symbol> ; </symbol>
+            </doStatement>
+          </statements>
+          <symbol> } </symbol>
+        </ifStatement>
+        <returnStatement>
+          <keyword> return </keyword>
+          <symbol> ; </symbol>
+        </returnStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
+</class>
