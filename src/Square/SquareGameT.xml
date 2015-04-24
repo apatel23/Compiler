@@ -1,17 +1,17 @@
 <class>
   <keyword> class </keyword>
-  <identifier> SquareGame </identifier>
+  <identifier> SquareGame (class, defined) </identifier>
   <symbol> { </symbol>
   <classVarDec>
     <keyword> field </keyword>
     <identifier> Square </identifier>
-    <identifier> square </identifier>
+    <identifier> square (FIELD, , 0) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <classVarDec>
     <keyword> field </keyword>
     <keyword> int </keyword>
-    <identifier> direction </identifier>
+    <identifier> direction (FIELD, , 1) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <subroutineDec>
@@ -27,11 +27,10 @@
       <statements>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> square </identifier>
-          <symbol> = </symbol>
+          <identifier> square (FIELD, used, 0) </identifier>
           <expression>
             <term>
-              <identifier> Square </identifier>
+              <identifier> Square (0, used, -1) </identifier>
               <symbol> . </symbol>
               <identifier> new </identifier>
               <symbol> ( </symbol>
@@ -57,17 +56,18 @@
               <symbol> ) </symbol>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> direction </identifier>
-          <symbol> = </symbol>
+          <identifier> direction (FIELD, used, 1) </identifier>
           <expression>
             <term>
               <integerConstant> 0 </integerConstant>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <returnStatement>
@@ -96,7 +96,7 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> square </identifier>
+          <identifier> square (FIELD, used, 0)  </identifier>
           <symbol> . </symbol>
           <identifier> dispose </identifier>
           <symbol> ( </symbol>
@@ -107,7 +107,7 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Memory </identifier>
+          <identifier> Memory (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> deAlloc </identifier>
           <symbol> ( </symbol>
@@ -142,25 +142,25 @@
       <varDec>
         <keyword> var </keyword>
         <keyword> char </keyword>
-        <identifier> key </identifier>
+        <identifier> key (VAR, defined, 0) </identifier>
         <symbol> ; </symbol>
       </varDec>
       <varDec>
         <keyword> var </keyword>
         <keyword> boolean </keyword>
-        <identifier> exit </identifier>
+        <identifier> exit (VAR, defined, 1) </identifier>
         <symbol> ; </symbol>
       </varDec>
       <statements>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> exit </identifier>
-          <symbol> = </symbol>
+          <identifier> exit (VAR, used, 1) </identifier>
           <expression>
             <term>
               <keyword> false </keyword>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <whileStatement>
@@ -170,7 +170,7 @@
             <term>
               <symbol> ~ </symbol>
               <term>
-                <identifier> exit </identifier>
+                <identifier> exit (VAR, used, 1) </identifier>
               </term>
             </term>
           </expression>
@@ -182,7 +182,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -194,11 +194,10 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> key </identifier>
-                  <symbol> = </symbol>
+                  <identifier> key (VAR, used, 0) </identifier>
                   <expression>
                     <term>
-                      <identifier> Keyboard </identifier>
+                      <identifier> Keyboard (0, used, -1) </identifier>
                       <symbol> . </symbol>
                       <identifier> keyPressed </identifier>
                       <symbol> ( </symbol>
@@ -207,11 +206,12 @@
                       <symbol> ) </symbol>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
                 <doStatement>
                   <keyword> do </keyword>
-                  <identifier> moveSquare </identifier>
+                  <identifier> moveSquare (0, used, -1)  </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                   </expressionList>
@@ -226,7 +226,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -238,13 +238,13 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> exit </identifier>
-                  <symbol> = </symbol>
+                  <identifier> exit (VAR, used, 1) </identifier>
                   <expression>
                     <term>
                       <keyword> true </keyword>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
               </statements>
@@ -255,7 +255,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -267,7 +267,7 @@
               <statements>
                 <doStatement>
                   <keyword> do </keyword>
-                  <identifier> square </identifier>
+                  <identifier> square (FIELD, used, 0)  </identifier>
                   <symbol> . </symbol>
                   <identifier> decSize </identifier>
                   <symbol> ( </symbol>
@@ -284,7 +284,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -296,7 +296,7 @@
               <statements>
                 <doStatement>
                   <keyword> do </keyword>
-                  <identifier> square </identifier>
+                  <identifier> square (FIELD, used, 0)  </identifier>
                   <symbol> . </symbol>
                   <identifier> incSize </identifier>
                   <symbol> ( </symbol>
@@ -313,7 +313,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -325,13 +325,13 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> direction </identifier>
-                  <symbol> = </symbol>
+                  <identifier> direction (FIELD, used, 1) </identifier>
                   <expression>
                     <term>
                       <integerConstant> 1 </integerConstant>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
               </statements>
@@ -342,7 +342,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -354,13 +354,13 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> direction </identifier>
-                  <symbol> = </symbol>
+                  <identifier> direction (FIELD, used, 1) </identifier>
                   <expression>
                     <term>
                       <integerConstant> 2 </integerConstant>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
               </statements>
@@ -371,7 +371,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -383,13 +383,13 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> direction </identifier>
-                  <symbol> = </symbol>
+                  <identifier> direction (FIELD, used, 1) </identifier>
                   <expression>
                     <term>
                       <integerConstant> 3 </integerConstant>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
               </statements>
@@ -400,7 +400,7 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> key </identifier>
+                  <identifier> key (VAR, used, 0) </identifier>
                 </term>
                 <symbol> = </symbol>
                 <term>
@@ -412,13 +412,13 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> direction </identifier>
-                  <symbol> = </symbol>
+                  <identifier> direction (FIELD, used, 1) </identifier>
                   <expression>
                     <term>
                       <integerConstant> 4 </integerConstant>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
               </statements>
@@ -434,7 +434,7 @@
                     <symbol> ( </symbol>
                     <expression>
                       <term>
-                        <identifier> key </identifier>
+                        <identifier> key (VAR, used, 0) </identifier>
                       </term>
                       <symbol> = </symbol>
                       <term>
@@ -450,11 +450,10 @@
               <statements>
                 <letStatement>
                   <keyword> let </keyword>
-                  <identifier> key </identifier>
-                  <symbol> = </symbol>
+                  <identifier> key (VAR, used, 0) </identifier>
                   <expression>
                     <term>
-                      <identifier> Keyboard </identifier>
+                      <identifier> Keyboard (0, used, -1) </identifier>
                       <symbol> . </symbol>
                       <identifier> keyPressed </identifier>
                       <symbol> ( </symbol>
@@ -463,11 +462,12 @@
                       <symbol> ) </symbol>
                     </term>
                   </expression>
+                  <symbol> = </symbol>
                   <symbol> ; </symbol>
                 </letStatement>
                 <doStatement>
                   <keyword> do </keyword>
-                  <identifier> moveSquare </identifier>
+                  <identifier> moveSquare (0, used, -1)  </identifier>
                   <symbol> ( </symbol>
                   <expressionList>
                   </expressionList>
@@ -504,7 +504,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> direction </identifier>
+              <identifier> direction (FIELD, used, 1) </identifier>
             </term>
             <symbol> = </symbol>
             <term>
@@ -516,7 +516,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> square </identifier>
+              <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
               <identifier> moveUp </identifier>
               <symbol> ( </symbol>
@@ -533,7 +533,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> direction </identifier>
+              <identifier> direction (FIELD, used, 1) </identifier>
             </term>
             <symbol> = </symbol>
             <term>
@@ -545,7 +545,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> square </identifier>
+              <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
               <identifier> moveDown </identifier>
               <symbol> ( </symbol>
@@ -562,7 +562,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> direction </identifier>
+              <identifier> direction (FIELD, used, 1) </identifier>
             </term>
             <symbol> = </symbol>
             <term>
@@ -574,7 +574,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> square </identifier>
+              <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
               <identifier> moveLeft </identifier>
               <symbol> ( </symbol>
@@ -591,7 +591,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> direction </identifier>
+              <identifier> direction (FIELD, used, 1) </identifier>
             </term>
             <symbol> = </symbol>
             <term>
@@ -603,7 +603,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> square </identifier>
+              <identifier> square (FIELD, used, 0)  </identifier>
               <symbol> . </symbol>
               <identifier> moveRight </identifier>
               <symbol> ( </symbol>
@@ -617,7 +617,7 @@
         </ifStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Sys </identifier>
+          <identifier> Sys (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> wait </identifier>
           <symbol> ( </symbol>

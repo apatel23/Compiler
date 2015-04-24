@@ -1,6 +1,6 @@
 <class>
   <keyword> class </keyword>
-  <identifier> Main </identifier>
+  <identifier> Main (class, defined) </identifier>
   <symbol> { </symbol>
   <subroutineDec>
     <keyword> function </keyword>
@@ -15,17 +15,16 @@
       <varDec>
         <keyword> var </keyword>
         <identifier> SquareGame </identifier>
-        <identifier> game </identifier>
+        <identifier> game (VAR, defined, 0) </identifier>
         <symbol> ; </symbol>
       </varDec>
       <statements>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> game </identifier>
-          <symbol> = </symbol>
+          <identifier> game (VAR, used, 0) </identifier>
           <expression>
             <term>
-              <identifier> SquareGame </identifier>
+              <identifier> SquareGame (0, used, -1) </identifier>
               <symbol> . </symbol>
               <identifier> new </identifier>
               <symbol> ( </symbol>
@@ -34,11 +33,12 @@
               <symbol> ) </symbol>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> game </identifier>
+          <identifier> game (VAR, used, 0)  </identifier>
           <symbol> . </symbol>
           <identifier> run </identifier>
           <symbol> ( </symbol>
@@ -49,7 +49,7 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> game </identifier>
+          <identifier> game (VAR, used, 0)  </identifier>
           <symbol> . </symbol>
           <identifier> dispose </identifier>
           <symbol> ( </symbol>

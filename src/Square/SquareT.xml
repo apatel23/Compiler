@@ -1,19 +1,19 @@
 <class>
   <keyword> class </keyword>
-  <identifier> Square </identifier>
+  <identifier> Square (class, defined) </identifier>
   <symbol> { </symbol>
   <classVarDec>
     <keyword> field </keyword>
     <keyword> int </keyword>
-    <identifier> x </identifier>
+    <identifier> x (FIELD, , 0) </identifier>
     <symbol> , </symbol>
-    <identifier> y </identifier>
+    <identifier> y (FIELD, , 1) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <classVarDec>
     <keyword> field </keyword>
     <keyword> int </keyword>
-    <identifier> size </identifier>
+    <identifier> size (FIELD, , 2) </identifier>
     <symbol> ; </symbol>
   </classVarDec>
   <subroutineDec>
@@ -23,13 +23,13 @@
     <symbol> ( </symbol>
     <parameterList>
       <keyword> int</keyword>
-      <identifier> Ax </identifier>
+      <identifier> Ax (ARG, defined, 0) </identifier>
       <symbol> , </symbol>
       <keyword> int</keyword>
-      <identifier> Ay </identifier>
+      <identifier> Ay (ARG, defined, 1) </identifier>
       <symbol> , </symbol>
       <keyword> int</keyword>
-      <identifier> Asize </identifier>
+      <identifier> Asize (ARG, defined, 2) </identifier>
     </parameterList>
     <symbol> ) </symbol>
     <subroutineBody>
@@ -37,40 +37,40 @@
       <statements>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> x </identifier>
-          <symbol> = </symbol>
+          <identifier> x (FIELD, used, 0) </identifier>
           <expression>
             <term>
-              <identifier> Ax </identifier>
+              <identifier> Ax (ARG, used, 0) </identifier>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> y </identifier>
-          <symbol> = </symbol>
+          <identifier> y (FIELD, used, 1) </identifier>
           <expression>
             <term>
-              <identifier> Ay </identifier>
+              <identifier> Ay (ARG, used, 1) </identifier>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <letStatement>
           <keyword> let </keyword>
-          <identifier> size </identifier>
-          <symbol> = </symbol>
+          <identifier> size (FIELD, used, 2) </identifier>
           <expression>
             <term>
-              <identifier> Asize </identifier>
+              <identifier> Asize (ARG, used, 2) </identifier>
             </term>
           </expression>
+          <symbol> = </symbol>
           <symbol> ; </symbol>
         </letStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> draw </identifier>
+          <identifier> draw (0, used, -1)  </identifier>
           <symbol> ( </symbol>
           <expressionList>
           </expressionList>
@@ -103,7 +103,7 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Memory </identifier>
+          <identifier> Memory (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> deAlloc </identifier>
           <symbol> ( </symbol>
@@ -138,7 +138,7 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen </identifier>
+          <identifier> Screen (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> setColor </identifier>
           <symbol> ( </symbol>
@@ -154,40 +154,40 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen </identifier>
+          <identifier> Screen (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> drawRectangle </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
               <term>
-                <identifier> x </identifier>
+                <identifier> x (FIELD, used, 0) </identifier>
               </term>
             </expression>
             <symbol> , </symbol>
             <expression>
               <term>
-                <identifier> y </identifier>
+                <identifier> y (FIELD, used, 1) </identifier>
               </term>
             </expression>
             <symbol> , </symbol>
             <expression>
               <term>
-                <identifier> x </identifier>
+                <identifier> x (FIELD, used, 0) </identifier>
               </term>
               <symbol> + </symbol>
               <term>
-                <identifier> size </identifier>
+                <identifier> size (FIELD, used, 2) </identifier>
               </term>
             </expression>
             <symbol> , </symbol>
             <expression>
               <term>
-                <identifier> y </identifier>
+                <identifier> y (FIELD, used, 1) </identifier>
               </term>
               <symbol> + </symbol>
               <term>
-                <identifier> size </identifier>
+                <identifier> size (FIELD, used, 2) </identifier>
               </term>
             </expression>
           </expressionList>
@@ -215,7 +215,7 @@
       <statements>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen </identifier>
+          <identifier> Screen (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> setColor </identifier>
           <symbol> ( </symbol>
@@ -231,40 +231,40 @@
         </doStatement>
         <doStatement>
           <keyword> do </keyword>
-          <identifier> Screen </identifier>
+          <identifier> Screen (0, used, -1)  </identifier>
           <symbol> . </symbol>
           <identifier> drawRectangle </identifier>
           <symbol> ( </symbol>
           <expressionList>
             <expression>
               <term>
-                <identifier> x </identifier>
+                <identifier> x (FIELD, used, 0) </identifier>
               </term>
             </expression>
             <symbol> , </symbol>
             <expression>
               <term>
-                <identifier> y </identifier>
+                <identifier> y (FIELD, used, 1) </identifier>
               </term>
             </expression>
             <symbol> , </symbol>
             <expression>
               <term>
-                <identifier> x </identifier>
+                <identifier> x (FIELD, used, 0) </identifier>
               </term>
               <symbol> + </symbol>
               <term>
-                <identifier> size </identifier>
+                <identifier> size (FIELD, used, 2) </identifier>
               </term>
             </expression>
             <symbol> , </symbol>
             <expression>
               <term>
-                <identifier> y </identifier>
+                <identifier> y (FIELD, used, 1) </identifier>
               </term>
               <symbol> + </symbol>
               <term>
-                <identifier> size </identifier>
+                <identifier> size (FIELD, used, 2) </identifier>
               </term>
             </expression>
           </expressionList>
@@ -301,11 +301,11 @@
                   <symbol> ( </symbol>
                   <expression>
                     <term>
-                      <identifier> y </identifier>
+                      <identifier> y (FIELD, used, 1) </identifier>
                     </term>
                     <symbol> + </symbol>
                     <term>
-                      <identifier> size </identifier>
+                      <identifier> size (FIELD, used, 2) </identifier>
                     </term>
                   </expression>
                   <symbol> ) </symbol>
@@ -325,11 +325,11 @@
                   <symbol> ( </symbol>
                   <expression>
                     <term>
-                      <identifier> x </identifier>
+                      <identifier> x (FIELD, used, 0) </identifier>
                     </term>
                     <symbol> + </symbol>
                     <term>
-                      <identifier> size </identifier>
+                      <identifier> size (FIELD, used, 2) </identifier>
                     </term>
                   </expression>
                   <symbol> ) </symbol>
@@ -347,7 +347,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> erase </identifier>
+              <identifier> erase (0, used, -1)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -356,22 +356,22 @@
             </doStatement>
             <letStatement>
               <keyword> let </keyword>
-              <identifier> size </identifier>
-              <symbol> = </symbol>
+              <identifier> size (FIELD, used, 2) </identifier>
               <expression>
                 <term>
-                  <identifier> size </identifier>
+                  <identifier> size (FIELD, used, 2) </identifier>
                 </term>
                 <symbol> + </symbol>
                 <term>
                   <integerConstant> 2 </integerConstant>
                 </term>
               </expression>
+              <symbol> = </symbol>
               <symbol> ; </symbol>
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> draw </identifier>
+              <identifier> draw (0, used, -1)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -405,7 +405,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> size </identifier>
+              <identifier> size (FIELD, used, 2) </identifier>
             </term>
             <symbol> &gt; </symbol>
             <term>
@@ -417,7 +417,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> erase </identifier>
+              <identifier> erase (0, used, -1)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -426,22 +426,22 @@
             </doStatement>
             <letStatement>
               <keyword> let </keyword>
-              <identifier> size </identifier>
-              <symbol> = </symbol>
+              <identifier> size (FIELD, used, 2) </identifier>
               <expression>
                 <term>
-                  <identifier> size </identifier>
+                  <identifier> size (FIELD, used, 2) </identifier>
                 </term>
                 <symbol> - </symbol>
                 <term>
                   <integerConstant> 2 </integerConstant>
                 </term>
               </expression>
+              <symbol> = </symbol>
               <symbol> ; </symbol>
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> draw </identifier>
+              <identifier> draw (0, used, -1)  </identifier>
               <symbol> ( </symbol>
               <expressionList>
               </expressionList>
@@ -475,7 +475,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> y </identifier>
+              <identifier> y (FIELD, used, 1) </identifier>
             </term>
             <symbol> &gt; </symbol>
             <term>
@@ -487,7 +487,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -503,14 +503,14 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
@@ -519,11 +519,11 @@
                     <symbol> ( </symbol>
                     <expression>
                       <term>
-                        <identifier> y </identifier>
+                        <identifier> y (FIELD, used, 1) </identifier>
                       </term>
                       <symbol> + </symbol>
                       <term>
-                        <identifier> size </identifier>
+                        <identifier> size (FIELD, used, 2) </identifier>
                       </term>
                     </expression>
                     <symbol> ) </symbol>
@@ -536,21 +536,21 @@
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
               </expressionList>
@@ -559,22 +559,22 @@
             </doStatement>
             <letStatement>
               <keyword> let </keyword>
-              <identifier> y </identifier>
-              <symbol> = </symbol>
+              <identifier> y (FIELD, used, 1) </identifier>
               <expression>
                 <term>
-                  <identifier> y </identifier>
+                  <identifier> y (FIELD, used, 1) </identifier>
                 </term>
                 <symbol> - </symbol>
                 <term>
                   <integerConstant> 2 </integerConstant>
                 </term>
               </expression>
+              <symbol> = </symbol>
               <symbol> ; </symbol>
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -590,36 +590,36 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
@@ -660,11 +660,11 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> y </identifier>
+                  <identifier> y (FIELD, used, 1) </identifier>
                 </term>
                 <symbol> + </symbol>
                 <term>
-                  <identifier> size </identifier>
+                  <identifier> size (FIELD, used, 2) </identifier>
                 </term>
               </expression>
               <symbol> ) </symbol>
@@ -679,7 +679,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -695,36 +695,36 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
@@ -737,22 +737,22 @@
             </doStatement>
             <letStatement>
               <keyword> let </keyword>
-              <identifier> y </identifier>
-              <symbol> = </symbol>
+              <identifier> y (FIELD, used, 1) </identifier>
               <expression>
                 <term>
-                  <identifier> y </identifier>
+                  <identifier> y (FIELD, used, 1) </identifier>
                 </term>
                 <symbol> + </symbol>
                 <term>
                   <integerConstant> 2 </integerConstant>
                 </term>
               </expression>
+              <symbol> = </symbol>
               <symbol> ; </symbol>
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -768,14 +768,14 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
@@ -784,11 +784,11 @@
                     <symbol> ( </symbol>
                     <expression>
                       <term>
-                        <identifier> y </identifier>
+                        <identifier> y (FIELD, used, 1) </identifier>
                       </term>
                       <symbol> + </symbol>
                       <term>
-                        <identifier> size </identifier>
+                        <identifier> size (FIELD, used, 2) </identifier>
                       </term>
                     </expression>
                     <symbol> ) </symbol>
@@ -801,21 +801,21 @@
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
               </expressionList>
@@ -849,7 +849,7 @@
           <symbol> ( </symbol>
           <expression>
             <term>
-              <identifier> x </identifier>
+              <identifier> x (FIELD, used, 0) </identifier>
             </term>
             <symbol> &gt; </symbol>
             <term>
@@ -861,7 +861,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -877,7 +877,7 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
@@ -887,11 +887,11 @@
                     <symbol> ( </symbol>
                     <expression>
                       <term>
-                        <identifier> x </identifier>
+                        <identifier> x (FIELD, used, 0) </identifier>
                       </term>
                       <symbol> + </symbol>
                       <term>
-                        <identifier> size </identifier>
+                        <identifier> size (FIELD, used, 2) </identifier>
                       </term>
                     </expression>
                     <symbol> ) </symbol>
@@ -904,27 +904,27 @@
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
               </expressionList>
@@ -933,22 +933,22 @@
             </doStatement>
             <letStatement>
               <keyword> let </keyword>
-              <identifier> x </identifier>
-              <symbol> = </symbol>
+              <identifier> x (FIELD, used, 0) </identifier>
               <expression>
                 <term>
-                  <identifier> x </identifier>
+                  <identifier> x (FIELD, used, 0) </identifier>
                 </term>
                 <symbol> - </symbol>
                 <term>
                   <integerConstant> 2 </integerConstant>
                 </term>
               </expression>
+              <symbol> = </symbol>
               <symbol> ; </symbol>
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -964,26 +964,26 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
@@ -993,11 +993,11 @@
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
               </expressionList>
@@ -1034,11 +1034,11 @@
               <symbol> ( </symbol>
               <expression>
                 <term>
-                  <identifier> x </identifier>
+                  <identifier> x (FIELD, used, 0) </identifier>
                 </term>
                 <symbol> + </symbol>
                 <term>
-                  <identifier> size </identifier>
+                  <identifier> size (FIELD, used, 2) </identifier>
                 </term>
               </expression>
               <symbol> ) </symbol>
@@ -1053,7 +1053,7 @@
           <statements>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -1069,26 +1069,26 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
               <expressionList>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
@@ -1098,11 +1098,11 @@
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
               </expressionList>
@@ -1111,22 +1111,22 @@
             </doStatement>
             <letStatement>
               <keyword> let </keyword>
-              <identifier> x </identifier>
-              <symbol> = </symbol>
+              <identifier> x (FIELD, used, 0) </identifier>
               <expression>
                 <term>
-                  <identifier> x </identifier>
+                  <identifier> x (FIELD, used, 0) </identifier>
                 </term>
                 <symbol> + </symbol>
                 <term>
                   <integerConstant> 2 </integerConstant>
                 </term>
               </expression>
+              <symbol> = </symbol>
               <symbol> ; </symbol>
             </letStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> setColor </identifier>
               <symbol> ( </symbol>
@@ -1142,7 +1142,7 @@
             </doStatement>
             <doStatement>
               <keyword> do </keyword>
-              <identifier> Screen </identifier>
+              <identifier> Screen (0, used, -1)  </identifier>
               <symbol> . </symbol>
               <identifier> drawRectangle </identifier>
               <symbol> ( </symbol>
@@ -1152,11 +1152,11 @@
                     <symbol> ( </symbol>
                     <expression>
                       <term>
-                        <identifier> x </identifier>
+                        <identifier> x (FIELD, used, 0) </identifier>
                       </term>
                       <symbol> + </symbol>
                       <term>
-                        <identifier> size </identifier>
+                        <identifier> size (FIELD, used, 2) </identifier>
                       </term>
                     </expression>
                     <symbol> ) </symbol>
@@ -1169,27 +1169,27 @@
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> x </identifier>
+                    <identifier> x (FIELD, used, 0) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
                 <symbol> , </symbol>
                 <expression>
                   <term>
-                    <identifier> y </identifier>
+                    <identifier> y (FIELD, used, 1) </identifier>
                   </term>
                   <symbol> + </symbol>
                   <term>
-                    <identifier> size </identifier>
+                    <identifier> size (FIELD, used, 2) </identifier>
                   </term>
                 </expression>
               </expressionList>

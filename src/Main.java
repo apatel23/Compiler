@@ -33,12 +33,13 @@ public class Main {
 		}
 
 		Parser p;
+		//VMOutput vmo;
 		
 		try {
 				for(File f : jFiles) {
 				System.out.println("------" + f.getName() + "------");
 				jackfile = home10path + f.getName();
-				path = home10path + f.getName().substring(0, f.getName().indexOf('.')) + "T.xml";
+				path = home10path + f.getName().substring(0, f.getName().indexOf('.')) + "T";
 				p = new Parser(jackfile, path);	
 			}
 				
